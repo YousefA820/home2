@@ -6,7 +6,6 @@ namespace NTierTodoApp.Controllers
     public class HomeController : Controller
     {
         private readonly TaskService taskService;
-
         public HomeController(TaskService service)
         {
             taskService = service;
@@ -33,12 +32,11 @@ namespace NTierTodoApp.Controllers
             return RedirectToAction("Index");
         }
 
-        // TODO: تنفيذ إجراء لحذف المهمة
         [HttpPost]
         public IActionResult DeleteTask(int id)
         {
             // TODO: استدعاء دالة حذف المهمة في TaskService
-
+            taskService.DeleteTask(id); [span_2](start_span)//[span_2](end_span)
             return RedirectToAction("Index");
         }
     }

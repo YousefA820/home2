@@ -5,7 +5,7 @@ using NTierTodoApp.Models;
 namespace NTierTodoApp.DataAccess
 {
     /// <summary>
-    /// مستودع البيانات لإدارة المهام باستخدام قائمة في الذاكرة.
+    /// مستودع البيانات لإدارة المهام باستخدام قائمة في الذاكرة.[span_3](end_span)
     /// </summary>
     public class TaskRepository
     {
@@ -24,15 +24,20 @@ namespace NTierTodoApp.DataAccess
 
         public TaskItem GetById(int id)
         {
-            return tasks.FirstOrDefault(t => t.Id == id);
+    return tasks.FirstOrDefault(t => t.Id == id);
         }
 
         // TODO: تنفيذ دالة حذف المهمة
         public void Delete(int id)
         {
             // TODO: ابحث عن المهمة باستخدام id
+            var taskToRemove = tasks.FirstOrDefault(t => t.Id == id); 
 
             // TODO: إذا كانت المهمة موجودة، قم بإزالتها من القائمة
+            if (taskToRemove != null) 
+            {
+                tasks.Remove(taskToRemove); 
+            }
         }
     }
 }
